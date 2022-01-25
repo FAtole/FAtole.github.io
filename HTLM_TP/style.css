@@ -9,7 +9,7 @@ html, body {
   
   html {
     font-size: 10px;
-    background-image: url('../Image/flocon.jpg');
+   background-image: url('../Image/flocon.jpg');
     background-size: cover;
 }
   
@@ -56,6 +56,12 @@ html, body {
   nav, article, aside, footer {
     background-color: rgb(184, 248, 250);
     padding: 1%;
+  }
+  
+  article{
+      background-color:  rgb(255, 255, 255);
+      padding: 1%;
+
   }
   
   nav {
