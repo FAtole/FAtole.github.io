@@ -51,13 +51,13 @@ html, body {
   /* || header layout */
   
   nav, article, aside, footer {
-    background-color: white;
+    background-color: rgb(184, 248, 250);
     padding: 1%;
   }
   
   nav {
     height: 50px;
-    background-color: #ff80ff;
+    background-color: #1be9f8;
     display: flex;
     margin-bottom: 10px;
   }
