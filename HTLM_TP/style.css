@@ -121,7 +121,6 @@ html, body {
   aside {
     flex: 1;
     margin-left: 10px;
-    background-color: #ff80ff;
   }
   
   aside li {
