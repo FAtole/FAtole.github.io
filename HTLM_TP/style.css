@@ -97,6 +97,14 @@ html, body {
     
   }
 
+  #menu-deroulant ul li:last-child{
+    border-radius:0 0 8px 8px;
+
+    }
+  #menu-deroulant li li{
+    background : rgba(173, 245, 250, 0.5) 90%;
+  }
+
   #menu-deroulant a {
     display: block;
     font-size: 2rem;
@@ -113,6 +121,7 @@ html, body {
   
   #menu-deroulant li:hover ul {
     left: auto;
+
   }
  
 
