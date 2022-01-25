@@ -4,6 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url('../Image/flocon.jpg');
+    background-size: cover;
+
   }
   
   html {
