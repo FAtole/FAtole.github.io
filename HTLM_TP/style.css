@@ -7,8 +7,8 @@ html, body {
   
   html {
     font-size: 10px;
-    background-color: #a9a9a9;
-  }
+    background-image: url('../Image/flocon.jpg');
+}
   
   body {
     width: 70%;
