@@ -53,16 +53,16 @@ html, body {
   
   /* || header layout */
   
-   article, aside, footer {
+    aside, footer {
     background-color: rgb(184, 248, 250);
     padding: 1%;
     /*arrondit*/
     border-radius:8px 8px 8px 8px;
   }
-  article{
+  article , footer{
       background-color:  rgb(255, 255, 255);
       padding: 1%;
-
+      border-radius:8px 8px 8px 8px;
   }
   
   nav{
@@ -133,6 +133,8 @@ nav > ul li:hover .sous{
     font-size: 12px;
 }
   
+
+
   input {
     font-size: 1.6rem;
     height: 32px;
@@ -173,4 +175,21 @@ nav > ul li:hover .sous{
   footer {
     margin-top: 10px;
   }
+
+  footer > p{
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 85%;
+      width: 100%;
+    }
   
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
