@@ -41,20 +41,34 @@
             background-size: 300px 300px
         }
     </style>
-    <SCRIPT LANGUAGE="Javascript" SRC="point.js"></SCRIPT>
-    <script>
 
 
-
-    </script>
 </head>
 
 <body>
     <canvas id="myCanvas" width="200" height="200"></canvas>
     <ul id="navlist">
-        <li id="gauche"></li>
-        <li id="droite"></li>
+        <li id="gauche">
+        <li id="droite">
     </ul>
 </body>
+
+<script>
+    var gauche = document.getElementById("gauche");
+    var droite = document.getElementById("droite");
+    gauche.style.display = "none";
+
+    gauche.addEventListener("click", () => {
+        gauche.style.display = "none";
+        droite.style.display = "block";
+    });
+
+    droite.addEventListener("click", () => {
+        droite.style.display = "none";
+        gauche.style.display = "block";
+    });
+
+
+</script>
 
 </html>
