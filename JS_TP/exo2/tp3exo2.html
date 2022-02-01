@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <SCRIPT LANGUAGE="Javascript" SRC="Carre.js"></SCRIPT>
+
+</head>
+
+<body onload='init()'>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+
+
+
+</body>
+
+<script>
+    var interval;
+    var canvas;
+    var carre;
+    var int = 0;
+
+
+
+    interval = setInterval(() => {
+        int += 1;
+        fetch("https://stwom.herokuapp.com/" + int).then((resp) => resp.json()).then((resp) => {
+            console.log(resp); 
+            carre.clean();
+            carre.update(resp.x, resp.y);
+            carre.draw();
+        });
+
+    }, 1000);
+
+    function init() {
+        canvas = document.getElementById('myCanvas');
+
+        carre = new Carre(0, 0, canvas);
+
+
+    };
+
+
+</script>
+
+</html>

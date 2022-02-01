@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <SCRIPT LANGUAGE="Javascript" SRC="Carre.js"></SCRIPT>
+
+</head>
+
+<body onload='init()'>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+
+
+
+</body>
+
+<script>
+    var interval;
+    var canvas;
+    var carre;
+    var int = 0;
+    var oReq = new XMLHttpRequest();
+
+
+    interval = setInterval(() => {
+        int += 1;
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "https://stwom.herokuapp.com/" + int);
+        oReq.send();
+    }, 1000);
+
+
+
+    function reqListener() {
+        console.log(JSON.parse(oReq.response).x, JSON.parse(oReq.response).y)
+        carre.clean();
+        carre.update(JSON.parse(oReq.response).x, JSON.parse(oReq.response).y);
+        carre.draw();
+    }
+
+    function init() {
+        canvas = document.getElementById('myCanvas');
+
+        carre = new Carre(0, 0, canvas);
+
+
+
+    };
+
+
+</script>
+
+</html>
