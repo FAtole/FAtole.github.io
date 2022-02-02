@@ -10,7 +10,7 @@ class Croix {
     draw() {
         this.canvas2dContext.beginPath();
 
-        this.canvas2dContext.fillStyle = this.color;
+        this.canvas2dContext.strokeStyle  = this.color;
       //  this.canvas2dContext.fillRect(this.x, this.y, 50, 50);
         this.canvas2dContext.moveTo(this.x-5, this.y-5);
         this.canvas2dContext.lineTo(this.x+5, this.y+5);
