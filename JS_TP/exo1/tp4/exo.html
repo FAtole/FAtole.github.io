@@ -24,7 +24,8 @@
 
         myWorker.postMessage("start");
         myWorker.onmessage = function (e) {
-            const c = new Croix(e.x, e.y)
+            const c = new Croix(e.x, e.y);
+            c.draw();
             console.log('Message received from worker');
         }
     } else {
