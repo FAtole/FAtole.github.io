@@ -15,6 +15,7 @@
 <script>
     var canvas;
     var interval;
+    var c;
 
     function init() {
         canvas = document.getElementById('myCanvas');
@@ -30,9 +31,9 @@
         }
         function Recoit() {
             objectsList.forEach(element => element.onmessage = function (e) {
-                const c = new Croix(e[0], e[1], canvas);
+                c = new Croix(e.data[0], e.data[1], canvas,"red");
                 c.draw();
-                console.log('Message received from worker');
+                console.log(e.data+' Message received from worker');
             });
         }
 
