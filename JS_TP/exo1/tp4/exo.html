@@ -21,14 +21,26 @@
     };
 
     if (window.Worker) {
-        const myWorker = new Worker("esclave.js");
+        const objectsList = new Array();
 
-        myWorker.postMessage("start");
-        myWorker.onmessage = function (e) {
-            const c = new Croix(e[0], e[1],canvas);
-            c.draw();
-            console.log('Message received from worker');
+        objectsList.push(new Worker("esclave.js"));
+
+        function Start() {
+            objectsList.forEach(element => element.postMessage("start"));
         }
+        function Recoit() {
+            objectsList.forEach(element => element.onmessage = function (e) {
+                const c = new Croix(e[0], e[1], canvas);
+                c.draw();
+                console.log('Message received from worker');
+            });
+        }
+
+        interval = setInterval(() => {
+            Start();
+            Recoit();
+        }, 1000);
+
     } else {
         console.log('Your browser doesn\'t support web workers.')
     }
