@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <SCRIPT LANGUAGE="Javascript" SRC="Carre.js"></SCRIPT>
+    <SCRIPT LANGUAGE="Javascript" SRC="Croix.js"></SCRIPT>
 
 </head>
 
@@ -12,7 +12,25 @@
 
 </body>
 
-<script src="code.js"></script>
+<script>
+    var canvas;
+
+    function init() {
+        canvas = document.getElementById('myCanvas');
+    };
+
+    if (window.Worker) {
+        const myWorker = new Worker("worker.js");
+
+        myWorker.postMessage("start");
+        myWorker.onmessage = function (e) {
+            const c = new Croix(e.x, e.y)
+            console.log('Message received from worker');
+        }
+    } else {
+        console.log('Your browser doesn\'t support web workers.')
+    }
+</script>
 
 
 </html>
