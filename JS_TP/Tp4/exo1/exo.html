@@ -24,12 +24,12 @@
     if (window.Worker) {
         const objectsList = new Array();
 
-        objectsList.push([new Worker("worker.js"),"red"]);
-        objectsList.push([new Worker("worker.js"),"green"]);
-        objectsList.push([new Worker("worker.js"),"blue"]);
-        objectsList.push([new Worker("worker.js"),"orange"]);
-        objectsList.push([new Worker("worker.js"),"cyan"]);
-        objectsList.push([new Worker("worker.js"),"black"]);
+        objectsList.push([new Worker("worker.js"), "red"]);
+        objectsList.push([new Worker("worker.js"), "green"]);
+        objectsList.push([new Worker("worker.js"), "blue"]);
+        objectsList.push([new Worker("worker.js"), "orange"]);
+        objectsList.push([new Worker("worker.js"), "cyan"]);
+        objectsList.push([new Worker("worker.js"), "black"]);
 
 
         function Start() {
@@ -37,7 +37,7 @@
         }
         function Recoit() {
             objectsList.forEach(element => element[0].onmessage = function (e) {
-                c = new Croix(e.data[0], e.data[1], canvas,element[1]);
+                c = new Croix(e.data[0], e.data[1], canvas, element[1]);
                 c.draw();
                 console.log(e.data);
             });
