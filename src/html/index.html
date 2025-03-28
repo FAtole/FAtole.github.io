@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurveRaycastUtils - Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #0078D7;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        h2 {
+            color: #0078D7;
+        }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #0078D7;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        CurveRaycastUtils - Documentation
+    </header>
+    <div class="container">
+        <h2>Description</h2>
+        <p>CurveRaycastUtils est une classe utilitaire permettant d'effectuer un raycast courbé dans Unity. 
+        Cela est utile pour simuler des trajectoires de projectiles, des tirs paraboliques ou des effets visuels.</p>
+        
+        <h2>Installation</h2>
+        <p>Ajoutez le fichier <code>CurveRaycastUtils.cs</code> à votre projet Unity.</p>
+        
+        <h2>Utilisation</h2>
+        <p>Effectuer un raycast courbé et tracer la trajectoire :</p>
+        <pre>
+bool collision = CurveRaycastUtils.EffectuerRaycastEtTracer(
+    pointDepart, pointArrivee, directionCourbe, facteurCourbe, pas, layerCollision,
+    out RaycastHit hit, couleurCourbe, couleurCollision, duration, depthTest
+);</pre>
+        
+        <h2>Exemple d'utilisation</h2>
+        <pre>
+using UnityEngine;
+public class ExampleCurveRaycast : MonoBehaviour
+{
+    public Vector3 pointDepart;
+    public Vector3 pointArrivee;
+    public Vector3 directionCourbe = Vector3.up;
+    public float facteurCourbe = 5f;
+    public float pas = 0.1f;
+    public LayerMask layerCollision;
+    public Color couleurCourbe = Color.red;
+    public Color couleurCollision = Color.green;
+    public float duration = 1.0f;
+    public bool depthTest = true;
+    
+    private void OnDrawGizmos()
+    {
+        if (CurveRaycastUtils.EffectuerRaycastEtTracer(
+            pointDepart, pointArrivee, directionCourbe, facteurCourbe, pas, layerCollision,
+            out RaycastHit hit, couleurCourbe, couleurCollision, duration, depthTest))
+        {
+            Debug.Log($"Collision détectée avec : {hit.collider.name} à la position {hit.point}");
+        }
+        else
+        {
+            Debug.Log("Aucune collision détectée.");
+        }
+    }
+}</pre>
+    </div>
+    <footer>
+        &copy; 2025 CurveRaycastUtils - Tous droits réservés.
+    </footer>
+</body>
+</html>
